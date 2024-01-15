@@ -1,8 +1,6 @@
 package com.b.simple.design.model.customer;
 
-/**
- * Collateral Model Object.
- */
+
 public class ProductImpl implements Product {
 
 	private long id;
