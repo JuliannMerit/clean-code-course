@@ -5,9 +5,7 @@ import java.util.List;
 
 public class UserLoginChecker {
 
-    /**
-     * {@inheritDoc}.
-     */
+
     public Lock isUserAllowedToLogin(long id, String status,
             boolean firstScreen, User user, List list) {
         Date time = new Date();
