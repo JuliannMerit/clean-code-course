@@ -1,37 +1,32 @@
-### Exercises
 
-#### GildedRose
-- Goal 
-	- Understand **Clarity of Code**
-	- Give **importance** to Unit Testing
-- `GildedRoseADefaultItemTest.java`
-- `GildedRoseBAgedBrieTest.java`
-- `GildedRoseCBackstagePassesTest.java`
-- More details - [Gilded Rose Exercises](GildedRose.md)
+  
+#### GildedRose  
 
-#### Code Design
-- Refactor Code
-	- `StudentHelper.isGradeB()`
-	- `StudentHelper.getGrade()`
-	- `StudentHelper.willQualifyForQuiz()`
-- Write Code
-	- `TextHelper.swapLastTwoCharacters()`
-	- `TextHelper.truncateAInFirst2Positions()`
-- Refactor Unit Test
-	- `CustomerBOTest`
+> Comprendre la notion **Clean Code**   
+> Donner l'**importance** au tests unitaires
 
-#### Refactoring
-- `CustomerBOImpl.getCustomerProductsSum(List<Product>)`
-- `Movie.isValidRating()`
-- `MenuAccess.setAuthorizationsInEachMenus(List<MenuItem>, Role[])`
-- `UserLoginChecker.isUserAllowedToLogin(long, String, boolean, User, List)`
+- Refactor Code 
+	- `GildedRoseADefaultItemTest.java`
+	- `GildedRoseBAgedBrieTest.java`  
+	- `GildedRoseCBackstagePassesTest.java`  
 
-#### Try on Your Own (With Solutions)
-- `UserLoginCheckerTest`
-- `MenuAccessTest`
-
-#### TDD
-- More details - [TDD Exercises](tdd.md)
-- Truncate A in first 2 positions of a String
-- Check if first two and last two characters in the string are the same.
-- Bowling Kata
+- Exercice à livrer : 
+	- Optimiser le code source de la fonction `updateQuality`
+	- Ajouter le support du nouvel  élément  "Conjured" au niveau de la fonction en suivant  la pratique TDD. 
+  
+#### Code Design  
+- Refactor Code  
+	- `StudentHelper.isGradeB()`  
+	- `StudentHelper.getGrade()`  
+	- `StudentHelper.willQualifyForQuiz()`  
+- Write Code  
+	- `TextHelper.swapLastTwoCharacters()`  
+	- `TextHelper.truncateAInFirst2Positions()`  
+- Refactor Unit Test  
+	- `CustomerBOTest`  
+  
+#### A faire chez vous pour vous entrainer 
+  
+- `CustomerBOImpl.getCustomerProductsSum(List<Product>)`  
+- `Movie.isValidRating()`  
+- `MenuAccess.setAuthorizationsInEachMenus(List<MenuItem>, Role[])`  
