@@ -24,66 +24,44 @@ class GildedRose {
 
 	}
 
-	public void updateQuality() {
-		for (int i = 0; i < items.length; i++) {
-			if (items[i].name != "Aged Brie" && items[i].name != "Backstage passes") {
-				if (items[i].quality > 0) {
-					if (items[i].name != "Sulfuras, Hand of Ragnaros") {
-						items[i].quality = items[i].quality - 1;
-					}
-				}
-			} else {
-				// This part handles the items for which quality can increase
-				// "Backstage passes" and "Aged Brie"
-
-				if (items[i].quality < 50) {
-					items[i].quality = items[i].quality + 1;
-
-					if (items[i].name == "Backstage passes") {
-						if (items[i].sellIn < 11) {
-							if (items[i].quality < 50) {
-								items[i].quality = items[i].quality + 1;
-							}
-						}
-
-						if (items[i].sellIn < 6) {
-							if (items[i].quality < 50) {
-								items[i].quality = items[i].quality + 1;
-							}
-						}
-					}
-				}
-			}
-
-			// Everything except for Sulfuras the sellIn Decreases
-			if (items[i].name != "Sulfuras, Hand of Ragnaros") {
-				items[i].sellIn = items[i].sellIn - 1;
-			}
-
-			if (items[i].sellIn < 0) {
-				if (items[i].name != "Aged Brie") {
-
-					if (items[i].name != "Backstage passes") {
-						if (items[i].quality > 0) {
-							if (items[i].name != "Sulfuras, Hand of Ragnaros") {
-								items[i].quality = items[i].quality - 1;
-							}
-						}
-					} else {
-						// For Backstage passes with sellin less than zero
-						// quality is set to zero
-						items[i].quality = 0;
-					}
-				} else {
-					// For Aged Brie below 50 quality increases actually by 2
-					// In the previous line
-					if (items[i].quality < 50) {
-						items[i].quality = items[i].quality + 1;
-					}
-				}
-			}
-		}
-	}
+    public void updateQuality(){
+        for (int i = 0; i < items.length; i++) {
+            int sellInChange = -1;
+            int qualityChange = -1;
+            if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                sellInChange = 0;
+                qualityChange = 0;
+            } else if (items[i].name.equals("Aged Brie")) {
+                qualityChange = 1;
+                if (items[i].sellIn <= 0) {
+                    qualityChange = 2;
+                }
+            } else if (items[i].name.equals("Backstage passes")) {
+                if (items[i].sellIn > 10) {
+                    qualityChange = 1;
+                } else if (items[i].sellIn > 5) {
+                    qualityChange = 2;
+                } else if (items[i].sellIn > 0) {
+                    qualityChange = 3;
+                } else {
+                    qualityChange = -items[i].quality; // Drops to 0 after concert
+                }
+            } else {
+                // Default item
+                if (items[i].sellIn <= 0) {
+                    qualityChange = -2;
+                }
+            }
+            items[i].sellIn += sellInChange;
+            if(items[i].quality + qualityChange > 50) {
+                items[i].quality = 50;
+            } else if (items[i].quality + qualityChange < 0) {
+                items[i].quality = 0;
+            } else {
+                items[i].quality += qualityChange;
+            }
+        }
+    }
 
 	@Override
 	public String toString() {
